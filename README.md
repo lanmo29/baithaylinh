@@ -1,1 +1,1 @@
-cài đủ thư viện là lên đường
+cài đủ thư viện ở requirements.txt là lên đường
