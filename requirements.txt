@@ -1,0 +1,6 @@
+Python 3.8+
+Flask
+OpenCV (opencv-python)
+EasyOCR
+Pillow
+Werkzeug

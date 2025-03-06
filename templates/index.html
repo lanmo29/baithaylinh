@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Nhận Diện Biển Số Xe</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-4xl transform transition-all duration-300 hover:shadow-3xl">
+        <!-- Header với logo và thông tin sinh viên -->
+        <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center space-x-4">
+                <img id="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="h-16 w-auto">
+                <div class="text-sm text-gray-600 font-medium">
+                    Sinh Viên: Nguyễn Hùng Lân<br>
+                    MSSV: K215480106030
+                </div>
+            </div>
+            <div class="space-x-2">
+                <button id="history-btn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all duration-300">
+                    <i class="fas fa-history mr-2"></i>Lịch Sử
+                </button>
+                <button id="reset-btn" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-all duration-300">
+                    <i class="fas fa-sync-alt mr-2"></i>Tải Lại
+                </button>
+            </div>
+        </div>
+
+        <h1 class="text-4xl font-bold mb-8 text-center text-gray-800">Hệ Thống Nhận Diện Biển Số Xe</h1>
+
+        <form id="upload-form" class="space-y-8" enctype="multipart/form-data">
+            <div class="flex items-center justify-center w-full">
+                <label for="file-upload" class="flex flex-col items-center px-8 py-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl shadow-lg cursor-pointer hover:from-blue-600 hover:to-purple-600 transition-all duration-300">
+                    <i class="fas fa-cloud-upload-alt text-4xl mb-3"></i>
+                    <span class="mt-2 text-xl font-semibold">Chọn Ảnh Biển Số</span>
+                    <input type="file" id="file-upload" name="file" accept="image/*" class="hidden">
+                </label>
+            </div>
+            <button type="submit" id="recognize-btn" class="w-full bg-gradient-to-r from-green-500 to-teal-500 text-white py-4 rounded-xl shadow-md hover:from-green-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 text-xl font-medium disabled:bg-gray-400" disabled>
+                Nhận Dạng
+            </button>
+        </form>
+
+        <!-- Spinner loading -->
+        <div id="loading" class="hidden mt-4 text-center">
+            <i class="fas fa-spinner fa-spin text-3xl text-blue-500"></i>
+            <p class="text-gray-600 mt-2">Đang xử lý...</p>
+        </div>
+
+        <div id="result" class="mt-8 text-center"></div>
+        <div id="preview" class="mt-8 flex justify-center"></div>
+
+        <!-- Modal lịch sử -->
+        <div id="history-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+                <h2 class="text-2xl font-bold mb-4">Lịch Sử Nhận Diện</h2>
+                <div id="history-content" class="max-h-96 overflow-y-auto"></div>
+                <button id="close-history" class="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

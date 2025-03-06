@@ -1,0 +1,146 @@
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.upload-container {
+    max-width: 100%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.upload-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+#file-upload {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-label {
+    display: block;
+    padding: 10px 15px;
+    background-color: #e9ecef;
+    color: #495057;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.file-label:hover {
+    background-color: #dee2e6;
+}
+
+.preview-image {
+    max-width: 50%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 1rem;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #4CAF50, #2196F3) 1;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.preview-image:hover {
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.result-success {
+    background: linear-gradient(45deg, rgba(76, 175, 80, 0.1), rgba(33, 150, 243, 0.1));
+    color: #2ecc71;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #4CAF50, #2196F3) 1;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.result-error {
+    background: linear-gradient(45deg, rgba(220, 53, 69, 0.1), rgba(255, 99, 71, 0.1));
+    color: #e74c3c;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #e74c3c, #ff6347) 1;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.result-success:hover, .result-error:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Thêm animation cho nút */
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Style cho logo */
+#logo {
+    max-height: 64px;
+    transition: transform 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.1);
+}
+
+/* Style cho thông tin sinh viên */
+.student-info {
+    font-size: 0.875rem;
+    color: #4a5568;
+    line-height: 1.5;
+    font-weight: medium;
+}
+
+/* Style cho modal lịch sử */
+#history-modal {
+    z-index: 1000;
+}
+
+#history-content {
+    border: 1px solid #e5e7eb;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+    .upload-container {
+        width: 100%;
+        margin: 1rem;
+        padding: 1rem;
+    }
+    #logo {
+        max-height: 40px;
+    }
+    .student-info {
+        font-size: 0.75rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .preview-image {
+        max-width: 100%;
+    }
+}
